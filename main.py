@@ -24,13 +24,19 @@ def list_squares_not_even_numbers(ten):
     return squares
 
 
+def counting_numbers(list_positive_number):
+    entered_numbers = 0
+    for _ in list_positive_number:
+        entered_numbers += 1
+    return entered_numbers
+
+
 print(f"Сумма всех чётных чисел от 1 до 100 включительно - "
       f"{calculates_sum_even_numbers(100)}")
 print(f"Список, содержащий квадраты всех нечётных чисел от 1 до 10 - "
       f"{list_squares_not_even_numbers(10)}")
 
 list_positive_number = []
-entered_numbers = 0
 while True:
     try:
         positive_number = float(input("Введите положительное число: "))
@@ -39,10 +45,8 @@ while True:
         elif positive_number == 0:
             print("\"0\" не является положительным числом!")
         else:
-            for _ in list_positive_number:
-                entered_numbers += 1
-            print(f"Ввод отрицательного значения!\nПоложительных чисел введено:"
-                  f" {entered_numbers}\nЗавершение программы.")
+            print(f"\nВвод отрицательного значения!\nПоложительных чисел введено: "
+                  f"{counting_numbers(list_positive_number)}\nЗавершение программы.")
             break
     except ValueError:
         print("Ввод нечислового значения!")
